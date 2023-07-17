@@ -12,7 +12,7 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     data = io.BytesIO()
-    im = Image.open("C:/Users/Savio/fdaFinalReview/static/sm1.jpg")
+    im = Image.open("C:/Users/<USER>/Downloads/sm1.jpg")
     im.save(data, "PNG")
     encoded_img_data = base64.b64encode(data.getvalue())
     spr = SmartPhoneRecommendation()
