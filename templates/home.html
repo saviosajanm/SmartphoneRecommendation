@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Smartphone Recommendation System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@600;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="bg">
+      <div class="center">
+        <h1 class="heading">Smartphone Recommendation System</h1>
+      </div>
+    </nav>
+
+    {% for i in range(5) %}
+      <h1 class="names bg1">{{ li[i][0]|capitalize }}</h1>
+      <div class="carousel slide bg1" data-bs-ride="false" id="carousel{{ i }}">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carousel{{ i }}" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carousel{{ i }}" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carousel{{ i }}" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carousel{{ i }}" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carousel{{ i }}" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="data:image/jpeg;base64,{{ img_data }}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>1. {{ li[i][1][0][0]|title }}</h3>
+              <h3>{{ li[i][1][0][1]|round|int }}/10</h3>
+              <h3>
+                {% for j in range(li[i][1][0][1]|round|int) %}
+                  ⭐
+                {% endfor %}
+              </h3>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="data:image/jpeg;base64,{{ img_data }}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>2. {{ li[i][1][1][0]|title }}</h3>
+              <h3>{{ li[i][1][1][1]|round|int }}/10</h3>
+              <h3>
+                {% for j in range(li[i][1][1][1]|round|int) %}
+                  ⭐
+                {% endfor %}
+              </h3>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="data:image/jpeg;base64,{{ img_data }}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>3. {{ li[i][1][2][0]|title }}</h3>
+              <h3>{{ li[i][1][2][1]|round|int }}/10</h3>
+              <h3>
+                {% for j in range(li[i][1][2][1]|round|int) %}
+                  ⭐
+                {% endfor %}
+              </h3>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="data:image/jpeg;base64,{{ img_data }}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>4. {{ li[i][1][3][0]|title }}</h3>
+              <h3>{{ li[i][1][3][1]|round|int }}/10</h3>
+              <h3>
+                {% for j in range(li[i][1][3][1]|round|int) %}
+                  ⭐
+                {% endfor %}
+              </h3>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="data:image/jpeg;base64,{{ img_data }}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>5. {{ li[i][1][4][0]|title }}</h3>
+              <h3>{{ li[i][1][4][1]|round|int }}/10</h3>
+              <h3>
+                {% for j in range(li[i][1][4][1]|round|int) %}
+                  ⭐
+                {% endfor %}
+              </h3>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel{{ i }}" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel{{ i }}" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    {% endfor %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
