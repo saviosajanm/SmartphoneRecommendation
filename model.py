@@ -129,33 +129,33 @@ class SmartPhoneRecommendation:
   # fit and predict using svd
   # (Helper function)
   def svd_func(self, train, test):
-      if not os.path.exists("C:/Users/Savio/fdaFinalReview/models/svd/svd.sav"):
+      if not os.path.exists("C:/Users/<USER>/SmartphoneRecommendation/models/svd/svd.sav"):
         svd = SVD(random_state=RS)
         svd.fit(train)
-        pickle.dump(svd, open("C:/Users/Savio/fdaFinalReview/models/svd/svd.sav", 'wb'))
-      svd = pickle.load(open("C:/Users/Savio/fdaFinalReview/models/svd/svd.sav", 'rb'))
+        pickle.dump(svd, open("C:/Users/<USER>/SmartphoneRecommendation/models/svd/svd.sav", 'wb'))
+      svd = pickle.load(open("C:/Users/<USER>/SmartphoneRecommendation/models/svd/svd.sav", 'rb'))
       svd_pred = svd.test(test)
       return svd_pred, svd
 
   # fit and predict using knn
   # (Helper function)
   def knn_item(self, train, test):
-      if not os.path.exists("C:/Users/Savio/fdaFinalReview/models/knni/knni.sav"):
+      if not os.path.exists("C:/Users/<USER>/SmartphoneRecommendation/models/knni/knni.sav"):
         knn_i = KNNWithMeans(k=50, sim_options={'name': 'pearson_baseline', 'user_based': False})
         knn_i.fit(train)
-        pickle.dump(knn_i, open("C:/Users/Savio/fdaFinalReview/models/knni/knni.sav", 'wb'))
-      knn_i = pickle.load(open("C:/Users/Savio/fdaFinalReview/models/knni/knni.sav", 'rb'))
+        pickle.dump(knn_i, open("C:/Users/<USER>/SmartphoneRecommendation/models/knni/knni.sav", 'wb'))
+      knn_i = pickle.load(open("C:/Users/<USER>/SmartphoneRecommendation/models/knni/knni.sav", 'rb'))
       knn_i_pred = knn_i.test(test)
       return knn_i_pred, knn_i
 
   # fit and predict using knn
   # (Helper function)
   def knn_user(self, train, test):
-      if not os.path.exists("C:/Users/Savio/fdaFinalReview/models/knnu/knnu.sav"):
+      if not os.path.exists("C:/Users/<USER>/SmartphoneRecommendation/models/knnu/knnu.sav"):
         knn_u = KNNWithMeans(k=50, sim_options={'name': 'pearson_baseline', 'user_based': True})
         knn_u.fit(train)
-        pickle.dump(knn_u, open("C:/Users/Savio/fdaFinalReview/models/knnu/knnu.sav", 'wb'))
-      knn_u = pickle.load(open("C:/Users/Savio/fdaFinalReview/models/knnu/knnu.sav", 'rb'))
+        pickle.dump(knn_u, open("C:/Users/<USER>/SmartphoneRecommendation/models/knnu/knnu.sav", 'wb'))
+      knn_u = pickle.load(open("C:/Users/<USER>/SmartphoneRecommendation/models/knnu/knnu.sav", 'rb'))
       knn_u_pred = knn_u.test(test)
       return knn_u_pred, knn_u
 
